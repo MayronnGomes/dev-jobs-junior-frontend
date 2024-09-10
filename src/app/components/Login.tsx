@@ -13,9 +13,9 @@ const Login: React.FC = () => {
   };
 
   return (
-    <div id='container' className='flex items-stretch justify-center rounded-full'>    
-        <div id='sign-in-container' className={`p-8 bg-white text-black ${activeDiv === 'sign-in-container' ? 'flex' : 'hidden'}`}>
-            <form action="#" className='flex flex-col gap-5 items-center justify-center'>
+    <div id='container' className='flex items-stretch justify-center overflow-hidden rounded-lg'>    
+        <div id='sign-in-container' className={`p-8 flex transition-all duration-1000 transform ${activeDiv === 'sign-in-container' ? ' bg-white text-black' : ' bg-orange-500 text-white '}`}>
+            <form action="#" className={`flex-col gap-5 items-center justify-center ${activeDiv === 'sign-in-container' ? 'flex' : 'hidden'}`}>
                 <h1 className='font-bold text-3xl'>Sign In</h1>
                 <div className='social-media-container flex flex-row gap-3'>
                     <a href="#" className='w-12 h-12 bg-white flex justify-center items-center border-2 border-gray-300 rounded-full'>
@@ -36,18 +36,8 @@ const Login: React.FC = () => {
                     SIGN IN
                 </button>
             </form>
-        </div>
-        <div id='sign-up-message' className={`p-8 bg-orange-500 text-white ${activeDiv === 'sign-in-container' ? 'flex' : 'hidden'}`}>
-            <form action="#" className='flex flex-col gap-5 items-center justify-center'>
-                <h1 className='font-bold text-3xl'>Hello, Friend!</h1>
-                <span className='text-center'>Enter your personal details and start <br /> journey with us</span>
-                <button type='button' onClick={toggleDivs} className='bg-white px-4 py-1 rounded-full text-orange-500 font-bold hover:text-white hover:border-white hover:border-2 hover:bg-orange-500'>
-                    SIGN UP
-                </button>
-            </form>
-        </div>   
-        <div id='sign-in-message' className={`p-8 bg-orange-500 text-white ${activeDiv === 'sign-up-container' ? 'flex' : 'hidden'}`}>
-            <form action="#" className='flex flex-col gap-5 items-center justify-center'>
+
+            <form action="#" className={`flex-col gap-5 items-center justify-center ${activeDiv === 'sign-in-container' ? 'hidden' : 'flex'}`}>
                 <h1 className='font-bold text-3xl'>Welcome Back!</h1>
                 <span className='text-center'>To keep connected with us please login <br /> with your personal infor</span>
                 <button type='button' onClick={toggleDivs}  className='bg-white px-4 py-1 rounded-full text-orange-500 font-bold hover:text-white hover:border-white hover:border-2 hover:bg-orange-500'>
@@ -55,8 +45,16 @@ const Login: React.FC = () => {
                 </button>
             </form>
         </div>
-        <div id='sign-up-container' className={`p-8 bg-white text-black ${activeDiv === 'sign-up-container' ? 'flex' : 'hidden'}`}>
-            <form action="#" className='flex flex-col gap-5 items-center justify-center'>
+        <div id='sign-up-message' className={`p-8 flex transition-all duration-1000 transform ${activeDiv === 'sign-in-container' ? 'bg-orange-500 text-white' : 'bg-white text-black '}`}>
+            <form action="#" className={`flex-col gap-5 items-center justify-center ${activeDiv === 'sign-in-container' ? 'flex' : 'hidden'}`}>
+                <h1 className='font-bold text-3xl'>Hello, Friend!</h1>
+                <span className='text-center'>Enter your personal details and start <br /> journey with us</span>
+                <button type='button' onClick={toggleDivs} className='bg-white px-4 py-1 rounded-full text-orange-500 font-bold hover:text-white hover:border-white hover:border-2 hover:bg-orange-500'>
+                    SIGN UP
+                </button>
+            </form>
+
+            <form action="#" className={`flex-col gap-5 items-center justify-center ${activeDiv === 'sign-in-container' ? 'hidden' : 'flex'}`}>
                 <h1 className='font-bold text-3xl'>Create Account</h1>
                 <div className='social-media-container flex flex-row gap-3'>
                     <a href="#" className='w-12 h-12 bg-white flex justify-center items-center border-2 border-gray-300 rounded-full'>
@@ -77,7 +75,7 @@ const Login: React.FC = () => {
                     SIGN UP
                 </button>
             </form>
-        </div>       
+        </div>        
     </div>
 
   );
